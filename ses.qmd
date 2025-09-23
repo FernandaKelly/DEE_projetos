@@ -24,6 +24,8 @@ execute:
 ---
 # Dados
 
+Análise de disponibilidade de indicadores do Censo demográfico 2022 abaixo:
+
 ## Abastecimento de água
 Arquivo: ABASTECIMENTODEAGUA - Colunas: "Município";"Moradores";"Domicílios"
 
@@ -34,6 +36,7 @@ Arquivo: COLETADELIXO - Colunas: "Município";"Moradores";"Domicílios"
 Arquivo: ALFBR - Colunas:MUNCOD;ANO;CORRACA;SEXO;SITUACAO;IDADE;POPALFAB;POPNALFAB;POPTOT
 
 ## Escolaridade
+
 Arquivo: ESCABR e ESCBBR - Colunas:MUNCOD;ANO;CORRACA;SEXO;SITUACAO;ESCOLARID;POPTOT
 
 ## População dependente
