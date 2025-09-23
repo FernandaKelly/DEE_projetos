@@ -22,5 +22,26 @@ execute:
   message: false
   echo: true
 ---
+# Dados
 
-# Uma pincelada...
+## Abastecimento de água
+Arquivo: ABASTECIMENTODEAGUA - Colunas: "Município";"Moradores";"Domicílios"
+
+## Coleta de lixo
+Arquivo: COLETADELIXO - Colunas: "Município";"Moradores";"Domicílios"
+
+## Alfabetimo
+Arquivo: ALFBR - Colunas:MUNCOD;ANO;CORRACA;SEXO;SITUACAO;IDADE;POPALFAB;POPNALFAB;POPTOT
+
+## Escolaridade
+Arquivo: ESCABR e ESCBBR - Colunas:MUNCOD;ANO;CORRACA;SEXO;SITUACAO;ESCOLARID;POPTOT
+
+## População dependente
+Arquivo: IDOBR - Colunas: MUNCOD;ANO;CORRACA;SEXO;IDADE;POPDEPEND;POPTOT
+
+## Instalações sanitárias
+Arquivo: INSTALACOESSANITARIAS - Colunas: Município;Moradores;Domicílios
+
+## Renda
+Arquivo: RENDBR - Colunas: MUNCOD;ANO;CORRACA;SITUACAO;NUMRENDA;DENRENDA;DENCRIREND;NUMPOBRES;NUMPOBRESX;NUMCRIPOB;NUMCRIPOBX;NUMDESOCUP;DENDESOCUP;NUMTRABINF;DENTRABINF
+
