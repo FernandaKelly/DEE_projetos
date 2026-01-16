@@ -16,15 +16,15 @@ dados_agro2022 <- read_excel("C:/Users/fernanda-romeiro/OneDrive - Governo do Es
                                           "3° quartil")),
     
     faixa_4 = dplyr::case_when(
-      part_agro <= 10.00 ~ "0 a 10",
-      part_agro >= 10.003 & part_agro <= 25 ~ "10.1 a 25",
-      part_agro >= 25.03 & part_agro <= 40.00 ~ "25.1 a 40",
-      part_agro >= 40.07 ~ "Acima de 40.1"),
+      part_agro <= 10.00 ~ "0 a 10 (n = 104)",
+      part_agro >= 10.003 & part_agro <= 25 ~ "10.1 a 25 (n = 135)",
+      part_agro >= 25.03 & part_agro <= 40.00 ~ "25.1 a 40 (n = 147)",
+      part_agro >= 40.07 ~ "Acima de 40.1 (n = 111)"),
     faixa_4_factor = factor(faixa_4,
-                              levels = c("0 a 10",
-                                         "10.1 a 25",
-                                         "25.1 a 40",
-                                         "Acima de 40.1")))
+                              levels = c("0 a 10 (n = 104)",
+                                         "10.1 a 25 (n = 135)",
+                                         "25.1 a 40 (n = 147)",
+                                         "Acima de 40.1 (n = 111)")))
 
 MUNICIPIOS <- read_excel("C:/Users/fernanda-romeiro/OneDrive - Governo do Estado do Rio Grande do Sul/Projetos/DEE/DEE_projetos/Dados/ShapeRS/MUNICIPIOS.xlsx")
 MUNICIPIOS_MP <- read_excel("C:/Users/fernanda-romeiro/OneDrive - Governo do Estado do Rio Grande do Sul/Projetos/DEE/DEE_projetos/Dados/ShapeRS/MUNICIPIOS_MP.xlsx")
@@ -66,10 +66,10 @@ ggplot(merge_Mapa) +
   scale_fill_manual(
     name = "Porcentagem (%)",
     values = c(
-      "0 a 10"        = "#BFBFBF", #E4003A
-      "10.1 a 25"     = "#FBBA00", #BFBFBF
-      "25.1 a 40"     = "#69A82F", #FBBA00
-      "Acima de 40.1" = "#E4003A" #69A82F
+      "0 a 10 (n = 104)"        = "#BFBFBF", #E4003A
+      "10.1 a 25 (n = 135)"     = "#FBBA00", #BFBFBF
+      "25.1 a 40 (n = 147)"     = "#69A82F", #FBBA00
+      "Acima de 40.1 (n = 111)" = "#E4003A" #69A82F
     )
   ) +
   coord_sf() +
