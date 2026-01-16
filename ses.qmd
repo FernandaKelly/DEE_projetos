@@ -1,7 +1,7 @@
 ---
 title: "Secretaria Estadual de Saúde" # Título do relatório
 subtitle: "**SES: Atualização dos dados do Censo 2022**"
-author: "Fernanda Kelly R. Silva | www.fernandakellyrs.com"
+author: "Fernanda Kelly R. Silva | Pesquisadora Estatística "
 lang: pt 
 date: "`r format(Sys.Date())`" 
 date-format: short 
@@ -26,25 +26,75 @@ execute:
 
 Análise de disponibilidade de indicadores do Censo demográfico 2022 abaixo:
 
+```{r}
+#| echo: false
+library(httr)
+library(jsonlite)
+library(sidrar)
+```
+
 ## Abastecimento de água
 Arquivo: ABASTECIMENTODEAGUA - Colunas: "Município";"Moradores";"Domicílios"
+
+
+```{r}
+#| echo: false
+#| eval: false
+dados_sidra <- get_sidra(x = NULL, api = "/t/1767/n3/all/v/all/p/2022")
+
+
+dados <- get_sidra(
+  x        = 1767,        # número da tabela
+  variable = "all",         # variável
+  geo      = "State",     # n3 = Unidade da Federação
+  period   = "2017"
+)
+
+
+dados <- get_sidra(
+  x        = 9542,        # número da tabela
+  variable = "all",         # variável
+  geo      = "State",     # n3 = Unidade da Federação
+  period   = "2022"
+)
+```
+
+A [tabela 6803](https://sidra.ibge.gov.br/tabela/6803) oferece as informações relevantes para levantamento dos dados ao que é proposto pela SES. Ressalto que a pesquisa das [características dos domicílios - resultados do universo](https://sidra.ibge.gov.br/pesquisa/censo-demografico/demografico-2022/universo-caracteristicas-dos-domicilios), abrange 12 tabelas que podem ser trabalhadas para alcançar o que foi proposto pelo TabNet. **Vale ressaltar que em 2022 houve a separação de dados entre existência de ligação à rede geral e existência de canalização de água.**
 
 ## Coleta de lixo
 Arquivo: COLETADELIXO - Colunas: "Município";"Moradores";"Domicílios"
 
-## Alfabetimo
+
+A [tabela 6892](https://sidra.ibge.gov.br/tabela/6892) possui informações sobre o destino do lixo e não sobre como é efetivada a coleta do lixo em si. Ressalto que a pesquisa das [características dos domicílios - resultados do universo](https://sidra.ibge.gov.br/pesquisa/censo-demografico/demografico-2022/universo-caracteristicas-dos-domicilios), abrange 12 tabelas que podem ser trabalhadas para alcançar o que foi proposto pelo TabNet.
+
+
+## Alfabetismo
 Arquivo: ALFBR - Colunas:MUNCOD;ANO;CORRACA;SEXO;SITUACAO;IDADE;POPALFAB;POPNALFAB;POPTOT
+
+A [tabela 9542](https://sidra.ibge.gov.br/tabela/9542) possui informações a nível de município, grupos de idade, cor/raça, com o total de pessoas alfabetizadas e não alfabetizadas. Foi o mais próximo ao que foi proposto que foi possível encontrar para o ano de 2022. Se necessário, há também a [tabela 9870](https://sidra.ibge.gov.br/tabela/9870) que abrange a taxa de alfabetização das pessoas de 15 anos ou mais de idade residentes em domicílios coletivos.
+
 
 ## Escolaridade
 
 Arquivo: ESCABR e ESCBBR - Colunas:MUNCOD;ANO;CORRACA;SEXO;SITUACAO;ESCOLARID;POPTOT
 
+
+Para a escolaridade, temos os [resultados preliminares da Amostra no censo demográfico 2022](https://sidra.ibge.gov.br/pesquisa/censo-demografico/demografico-2022/amostra-educacao). São 17 tabelas que abrange nível de ensino, **grupos de idade**, sexo e cor/raça. As informações são o que está proposto pela SES, mas não está compilada de acordo com a tabulação do TabNet oferece como resultado de pesquisa.
+
+
 ## População dependente
 Arquivo: IDOBR - Colunas: MUNCOD;ANO;CORRACA;SEXO;IDADE;POPDEPEND;POPTOT
+
+As informações sobre **População dependente** não foram encontradas de acordo com o que foi proposto pela SES.
 
 ## Instalações sanitárias
 Arquivo: INSTALACOESSANITARIAS - Colunas: Município;Moradores;Domicílios
 
+
+Em relação às instalações sanitárias, há a [tabela 6805](https://sidra.ibge.gov.br/tabela/6805) e a [tabela 6894](https://sidra.ibge.gov.br/tabela/6894) que podem auxiliar na construção das informações porpostas pela SES, mas a pesquisa das [características dos domicílios - resultados do universo](https://sidra.ibge.gov.br/pesquisa/censo-demografico/demografico-2022/universo-caracteristicas-dos-domicilios), abrange 12 tabelas que podem ser trabalhadas para alcançar o que foi proposto pelo TabNet.
+
+
 ## Renda
 Arquivo: RENDBR - Colunas: MUNCOD;ANO;CORRACA;SITUACAO;NUMRENDA;DENRENDA;DENCRIREND;NUMPOBRES;NUMPOBRESX;NUMCRIPOB;NUMCRIPOBX;NUMDESOCUP;DENDESOCUP;NUMTRABINF;DENTRABINF
 
+As informações sobre **Renda** não foram encontradas de acordo com o que foi proposto pela SES.
